@@ -1,0 +1,73 @@
+﻿@using Employe.Models
+@model Employee
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CreateEmploye</title>
+</head>
+<body>
+    <div> 
+        @using (Html.BeginForm())
+        {
+        <table>
+            <tr>
+                <td>Name:</td>
+                <td>@Html.TextAreaFor(x => x.Name)</td>
+            </tr>
+            <tr>
+                <td>Gender:</td>
+                <td>
+                    @Html.RadioButtonFor(x => x.Gender, "Male") Male
+                    @Html.RadioButtonFor(x => x.Gender, "Female") Female
+                    @Html.RadioButtonFor(x => x.Gender, "Other") Other
+                </td>
+            </tr>
+
+            <tr>
+                <td>Role:</td>
+                <td>
+                    @Html.DropDownListFor(x => x.Role, new SelectList(new[]
+                    {
+                        "--Select--","Dev","Testing","Build","Sales", "ProjectManager", "DatabaseAdmin", "HRSpecialist", "NetworkEngineer"
+                    }))
+                    
+                </td>
+            </tr>
+            <tr>
+                <td>Country:</td>
+
+                <td>@Html.TextAreaFor(x => x.Country)</td>
+            </tr>
+            <tr>
+                <td>State:</td>
+                <td>@Html.TextAreaFor(x => x.State)</td>
+            </tr>
+            <tr>
+                <td>City:</td>
+                <td>@Html.TextAreaFor(x => x.City)</td>
+            </tr>
+            <tr>
+                <td>Username:</td>
+                <td>@Html.TextAreaFor(x => x.Username)</td>
+            </tr>
+            <tr>
+                <td>Password:</td>
+                <td>@Html.TextAreaFor(x => x.Password)</td>
+            </tr>
+            <tr>
+                <td>Status:</td>
+                <td>@Html.TextAreaFor(x => x.Status)</td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="button">AddEmploye</button>
+                </td>
+            </tr>
+        </table>
+        }
+    </div>
+</body>
+</html>
