@@ -1,0 +1,44 @@
+@model mvc_frame.Models.Employee
+
+@{
+    ViewBag.Title = "UpdateEmployee";
+}
+
+<h2>UpdateEmployee</h2>
+
+<form method="post" action="@Url.Action("UpdateEmployee", "Employee")">
+    <!-- Ensure EmpId is sent -->
+    <input type="hidden" name="empid" value="@Model.empid" />
+
+    <label>Name:</label>
+    <input type="text" name="Name" value="@Model.Name" class="form-control" required />
+
+    <label>Gender:</label>
+    <input type="text" name="Gender" value="@Model.Gender" class="form-control" required />
+
+    <label>Role:</label>
+    <input type="text" name="Role" value="@Model.Role" class="form-control" required />
+
+    <label>Country:</label>
+    <input type="text" name="Country" value="@Model.Country" class="form-control" required />
+
+    <label>State:</label>
+    <input type="text" name="State" value="@Model.State" class="form-control" required />
+
+    <label>City:</label>
+    <input type="text" name="City" value="@Model.City" class="form-control" required />
+
+    <label>Username:</label>
+    <input type="text" name="Username" value="@Model.Username" class="form-control" required />
+
+    <label>Password:</label>
+    <input type="password" name="Password" value="@Model.Password" class="form-control" required />
+
+    <label>Status:</label>
+    <input type="text" name="Status" value="@Model.Status" class="form-control" required />
+
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
