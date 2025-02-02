@@ -1,18 +1,19 @@
-﻿using System;
+using mvc_frame.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Employe.Models;
 
-namespace Employe.Controllers
+
+namespace mvc_frame.Controllers
 {
     public class EmployeeController : Controller
     {
-        // GET: Employee
+        // GET: EmployeeD
         public ViewResult GetAllEmployee()
         {
-            EmployeeModelManager modelManager = new EmployeeModelManager();
+            EmployeeModelManger modelManager = new EmployeeModelManger();
             List<Employee> employees = modelManager.GetEmployees();
             List<Employee> employees1 = employees;
             return View(employees1);
@@ -26,9 +27,9 @@ namespace Employe.Controllers
         [HttpPost]
         public ActionResult CreateEmploye(Employee employee)
         {
-            EmployeeModelManager modelManager = new EmployeeModelManager();
+            EmployeeModelManger modelManager = new EmployeeModelManger();
             int insertedRow = modelManager.Create(employee);
-            if(insertedRow > 0)
+            if (insertedRow > 0)
             {
                 return RedirectToAction("GetAllEmployee");
             }
@@ -37,14 +38,14 @@ namespace Employe.Controllers
         [HttpGet]
         public ActionResult UpdateEmployee(int id)
         {
-            EmployeeModelManager modelManager = new EmployeeModelManager();
+            EmployeeModelManger modelManager = new EmployeeModelManger();
             Employee employee = modelManager.GetEmployeebyId(id);
             return View(employee);
         }
         [HttpPost]
         public ActionResult UpdateEmployee(Employee employee)
         {
-            EmployeeModelManager modelManager = new EmployeeModelManager();
+            EmployeeModelManger modelManager = new EmployeeModelManger();
             int UpdatedRow = modelManager.Update(employee);
 
             if (UpdatedRow > 0)
@@ -55,7 +56,7 @@ namespace Employe.Controllers
         }
         public ActionResult DeleteEmployee(int id)
         {
-            EmployeeModelManager modelManager = new EmployeeModelManager();
+            EmployeeModelManger modelManager = new EmployeeModelManger();
             int DeletedRow = modelManager.Delete(id);
             if (DeletedRow > 0)
             {
